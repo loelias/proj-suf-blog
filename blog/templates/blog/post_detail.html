@@ -18,6 +18,7 @@
   </div>
 
   <hr>
+  <a class="btn btn-default" href="{% url 'add_comentario_to_post' pk=post.pk %}"> Adicionar Comentário</a>
   {% for comentario in post.comentarios.all %}
     <div class="comentario">
         <div class="date">{{ comentario.data_criacao }}</div>
@@ -25,6 +26,6 @@
         <p>{{ comment.texto|linebreaks }}</p>
     </div>
 {% empty %}
-  <p>Comentários ainda não foram feitos.(</p>
+  <p>Comentários ainda não foram feitos. :(</p>
 {% endfor %}
 {% endblock %}

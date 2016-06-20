@@ -11,5 +11,7 @@ urlpatterns = [
         name='post_publish'),
     url(r'^post/(?P<pk>\d+)/remove/$', views.post_remove,
         name='post_remove'),
+    url(r'^post/(?P<pk>\d+)/comentario/$', views.add_comentario_to_post,
+        name='add_comentario_to_post'),
 
 ]
