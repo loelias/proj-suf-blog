@@ -12,40 +12,15 @@
         <a href="/login/"
       </nav>
 
-      <article>
-         <section>
-            <p>Publicado: 20.06.2016, 6:37</p>
-            <h2><a href="">Meu primeiro post</a></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-              in ligula bibendum libero lobortis euismod ac eu ante. Praesent quis
-              consequat nunc, varius consectetur velit. Quisque malesuada, odio nec
-              bibendum luctus, risus ipsum imperdiet felis, et tempor tellus velit
-              ac turpis. Donec quis malesuada metus, vel venenatis erat. Pellentesque
-              tristique consectetur ultrices. In augue justo, rhoncus vel ultricies id,
-               pharetra eget ante. Aliquam blandit tortor ac nunc scelerisque, dapibus
-               posuere dolor posuere. Suspendisse orci ante, auctor vitae vestibulum at,
-               commodo at felis.
-             </p>
-         </section>
-      </article>
-
-      <article>
-         <section>
-            <p>Publicado: 20.06.2016, 6:37</p>
-            <h2><a href="">Meu segundo post</a></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-              in ligula bibendum libero lobortis euismod ac eu ante. Praesent quis
-              consequat nunc, varius consectetur velit. Quisque malesuada, odio nec
-              bibendum luctus, risus ipsum imperdiet felis, et tempor tellus velit
-              ac turpis. Donec quis malesuada metus, vel venenatis erat. Pellentesque
-              tristique consectetur ultrices. In augue justo, rhoncus vel ultricies id,
-               pharetra eget ante. Aliquam blandit tortor ac nunc scelerisque, dapibus
-               posuere dolor posuere. Suspendisse orci ante, auctor vitae vestibulum at,
-               commodo at felis.
-             </p>
-         </section>
-      </article>
-
+      {% for post in posts %}
+        <article>
+           <section>
+              <p>Publicado: {{ post.data_publicacao }}</p>
+              <h2><a href="">{{ post.titulo }}</a></h2>
+              <p>{{ post.texto|linebreaks }}</p>
+           </section>
+        </article>
+      {% endfor %}
 
       <footer>
         <p>
