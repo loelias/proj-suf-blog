@@ -13,5 +13,9 @@ urlpatterns = [
         name='post_remove'),
     url(r'^post/(?P<pk>\d+)/comentario/$', views.add_comentario_to_post,
         name='add_comentario_to_post'),
+    url(r'^comentario/(?P<pk>\d+)/aprovado/$', views.comentario_aprovado,
+        name='comentario_aprovado'),
+    url(r'^comentario/(?P<pk>\d+)/remover/$', views.comentario_remover,
+        name='comentario_remover'),
 
 ]

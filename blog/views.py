@@ -82,3 +82,18 @@ def add_comentario_to_post(request, pk):
     else:
         form = ComentarioForm()
     return render(request, 'blog/add_comentario_to_post.html', {'form': form})
+
+
+@login_required
+def comentario_aprovado(request, pk):
+    comentario = get_object_or_404(Comentario, pk=pk)
+    comentario.aprovar()
+    return redirect('blog.views.post_detail', pk=comentario.post.pk)
+
+
+@login_required
+def comentario_remover(request, pk):
+    comentario = get_object_or_404(Comentario, pk=pk)
+    post_pk = comentario.post.pk
+    comentario.delete()
+    return redirect('blog.views.post_detail', pk=post_pk)

@@ -20,11 +20,18 @@
   <hr>
   <a class="btn btn-default" href="{% url 'add_comentario_to_post' pk=post.pk %}"> Adicionar Comentário</a>
   {% for comentario in post.comentarios.all %}
-    <div class="comentario">
-        <div class="date">{{ comentario.data_criacao }}</div>
-        <strong>{{ comentario.autor }}</strong>
-        <p>{{ comment.texto|linebreaks }}</p>
-    </div>
+    {% if user.is_authenticated or comentario.comentario_aprovado %}
+      <div class="comentario">
+          <div class="date">
+            {{ comentario.data_criacao }}
+            {% if not comentario.comentario_aprovado %}
+              <a class="btn btn-default" href="{% url 'remover_comentario' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+              <a class="btn btn-default" href="{% url 'comentario_aprovado' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
+            {% endif %}
+          </div>
+          <strong>{{ comentario.autor }}</strong>
+          <p>{{ comentario.texto|linebreaks }}</p>
+      </div>
 {% empty %}
   <p>Comentários ainda não foram feitos. :(</p>
 {% endfor %}
