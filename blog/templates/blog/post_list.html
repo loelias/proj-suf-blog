@@ -1,26 +1,41 @@
+{% load staticfiles %}
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <html>
 
    <head>
       <meta charset="utf-8">
       <title>Blog - IFC</title>
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+      <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+      <link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
    </head>
 
    <body>
-      <header>Blog - IFC</header>
+      <header class="page-header">
+        <h1>Blog - IFC</h1>
+      </header>
       <nav>
         <a href="/login/"
       </nav>
 
-      {% for post in posts %}
-        <article>
-           <section>
-              <p>Publicado: {{ post.data_publicacao }}</p>
-              <h2><a href="">{{ post.titulo }}</a></h2>
-              <p>{{ post.texto|linebreaks }}</p>
-           </section>
-        </article>
-      {% endfor %}
+
+      <div class="content container">
+          <div class="row">
+              <div class="col-md-8">
+                  {% for post in posts %}
+                      <div class="post">
+                          <div class="date">
+                              <p>Publicado: {{ post.data_publicacao }}</p>
+                          </div>
+                          <h1><a href="">{{ post.titulo }}</a></h1>
+                          <p>{{ post.texto|linebreaks }}</p>
+                      </div>
+                  {% endfor %}
+              </div>
+          </div>
+      </div>
 
       <footer>
         <p>
