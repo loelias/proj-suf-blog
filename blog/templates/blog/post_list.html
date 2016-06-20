@@ -8,6 +8,7 @@
       </div>
       <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.titulo }}</a></h1>
       <p>{{ post.texto|linebreaks }}</p>
-      </div>
+      <a href="{% url 'blog.views.post_detail' pk=post.pk %}">Comentarios: {{ post.comentarios.count }}</a>
+    </div>
   {% endfor %}
 {% endblock %}
