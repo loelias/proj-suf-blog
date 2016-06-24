@@ -3,10 +3,10 @@
 {% block content %}
   {% for post in posts %}
     <article class="post">
-      <article class="well">
+      <article class="well" id="fade">
       <article class="date">
         <p>Publicado: {{ post.data_publicacao }}</p>
-      </div>
+      </article>
       <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.titulo }}</a></h1>
       <p>{{ post.texto|linebreaks }}</p>
       <a href="{% url 'post_detail' pk=post.pk %}">Comentários {{ post.comentario_aprovado.count }}</a>
