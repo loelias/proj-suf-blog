@@ -8,6 +8,7 @@
 
 <form method="post" action="{% url 'login' %}">
   {% csrf_token %}
+  <fieldset>
   <table>
     <tr>
         <td>{{ form.username.label_tag }}</td>
@@ -21,6 +22,7 @@
 
   <input type="submit" value="login" />
   <input type="hidden" name="next" value="{{ next }}" />
+</fieldset>
 </form>
 
 {% endblock %}

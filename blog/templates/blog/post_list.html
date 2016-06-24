@@ -3,6 +3,7 @@
 {% block content %}
   {% for post in posts %}
     <div class="post">
+      <div class="well">
       <div class="date">
         <p>Publicado: {{ post.data_publicacao }}</p>
       </div>
@@ -10,5 +11,21 @@
       <p>{{ post.texto|linebreaks }}</p>
       <a href="{% url 'post_detail' pk=post.pk %}">Comentários {{ post.comentario_aprovado.count }}</a>
     </div>
+  </div>
   {% endfor %}
+  <div class="pagination">
+    <span class="step-links">
+      {% if posts.has_previous %}
+        <a href="?page={{ posts.previous_page_number }}">Anterior</a>
+      {% endif %}
+
+      <span class="current">
+        Página {{ posts.number }} of {{ posts.paginator.num_pages }}.
+      </span>
+
+      {% if posts.has_next %}
+        <a href="?page={{ posts.next_page_number }}">Próxima</a>
+      {% endif %}
+    </span>
+  </div>
 {% endblock %}

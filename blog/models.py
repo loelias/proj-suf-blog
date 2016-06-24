@@ -34,6 +34,5 @@ class Comentario(models.Model):
         self.comentario_aprovado = True
         self.save()
 
-
     def __str__(self):
         return self.texto

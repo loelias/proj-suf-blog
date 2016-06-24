@@ -3,7 +3,9 @@
 {% block content %}
     <h1>Novo Comentário</h1>
     <form method="POST" class="post-form">{% csrf_token %}
+      <fieldset>
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">Enviar</button>
+      </fieldset>
     </form>
 {% endblock %}

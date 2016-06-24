@@ -2,16 +2,34 @@ from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views import generic
+from django.http import HttpResponse
 from .models import Post, Comentario
 from .forms import PostForm, ComentarioForm
 
 # Create your views here.
 
 
-def post_list(request):
-    posts = Post.objects.filter(data_publicacao__lte=timezone.now()).order_by(
-        'data_publicacao')
-    return render(request, 'blog/post_list.html', {'posts': posts})
+class PostListView(generic.ListView):
+
+    model = Post
+    template_name = 'blog/post_list.html'
+    context_object_name = 'posts'
+
+    def post_list(self, request):
+        postagens = Post.objects.filter(data_publicacao__lte=timezone.now()).order_by(
+            '-data_publicacao')
+        paginator = Paginator(postagens, 3)
+        page = request.GET.get('page')
+        try:
+            posts = paginator.page(page)
+        except PageNotAnInteger:
+            posts = paginator.page(1)
+        except EmptyPage:
+            posts = paginator.page(paginator.num_pages)
+
+        return HttpResponse(request, self.template_name, {'posts': posts})
 
 
 def post_detail(request, pk):
