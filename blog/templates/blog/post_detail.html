@@ -25,14 +25,17 @@
           <div class="date">
             {{ comentario.data_criacao }}
             {% if not comentario.comentario_aprovado %}
-              <a class="btn btn-default" href="{% url 'remover_comentario' pk=comment.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
-              <a class="btn btn-default" href="{% url 'comentario_aprovado' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
+              <a class="btn btn-default" href="{% url 'comentario_remover' pk=comentario.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
+              <a class="btn btn-default" href="{% url 'comentario_aprovado' pk=comentario.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
             {% endif %}
           </div>
           <strong>{{ comentario.autor }}</strong>
           <p>{{ comentario.texto|linebreaks }}</p>
       </div>
-{% empty %}
-  <p>Comentários ainda não foram feitos. :(</p>
+  {% endif %}
+  {% empty %}
+  <p>
+    Comentários ainda não foram feitos. :(
+  </p>
 {% endfor %}
 {% endblock %}

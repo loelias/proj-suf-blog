@@ -16,6 +16,9 @@ class Post(models.Model):
         self.data_publicacao = timezone.now()
         self.save()
 
+    def comentarios_aprovado(self):
+        return self.comentarios(comentario_aprovado=True)
+
     def __str__(self):
         return self.titulo
 
@@ -31,8 +34,6 @@ class Comentario(models.Model):
         self.comentario_aprovado = True
         self.save()
 
-    def comentarios_aprovado(self):
-        return self.comentarios.filter(comentario_aprovado=True)
 
     def __str__(self):
         return self.texto
