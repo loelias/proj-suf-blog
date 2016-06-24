@@ -2,18 +2,18 @@
 
 {% block content %}
   {% for post in posts %}
-    <div class="post">
-      <div class="well">
-      <div class="date">
+    <article class="post">
+      <article class="well">
+      <article class="date">
         <p>Publicado: {{ post.data_publicacao }}</p>
       </div>
       <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.titulo }}</a></h1>
       <p>{{ post.texto|linebreaks }}</p>
       <a href="{% url 'post_detail' pk=post.pk %}">Comentários {{ post.comentario_aprovado.count }}</a>
-    </div>
-  </div>
+    </article>
+  </article>
   {% endfor %}
-  <div class="pagination">
+  <article class="pagination">
     <span class="step-links">
       {% if posts.has_previous %}
         <a href="?page={{ posts.previous_page_number }}">Anterior</a>
@@ -27,5 +27,5 @@
         <a href="?page={{ posts.next_page_number }}">Próxima</a>
       {% endif %}
     </span>
-  </div>
+  </article>
 {% endblock %}

@@ -1,8 +1,14 @@
 .page-header {
-    background-color: #339900;
+    background: #339900;
+    background: -webkit-linear-gradient(white, #339900); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(white, #339900); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(white, #339900); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(white, #339900); /* Standard syntax */
     margin-top: 0;
     padding: 20px 20px 20px 40px;
 }
+
+
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
     color: #ffffff;
