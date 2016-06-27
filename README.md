@@ -1,0 +1,1 @@
+Esse projeto têm por finalidade a construção de um blog utilizando framework Django (versão 1.9), Python (3.x), HTML5, CSS3 e Bootstrap, para demonstração de conhecimento do conteúdo programático das disciplinas Desenvolvimento Web 1 e 2.
