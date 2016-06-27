@@ -78,14 +78,14 @@ def post_draft_list(request):
 def post_publish(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.publica()
-    return redirect('blog.views.post_detail', pk=pk)
+    return redirect('post_detail', pk=pk)
 
 
 @login_required
 def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.delete()
-    return redirect('blog.views.post_list')
+    return redirect('post_list')
 
 
 def add_comentario_to_post(request, pk):
@@ -96,7 +96,7 @@ def add_comentario_to_post(request, pk):
             comentario = form.save(commit=False)
             comentario.post = post
             comentario.save()
-            return redirect('blog.views.post_detail', pk=post.pk)
+            return redirect('post_detail', pk=post.pk)
     else:
         form = ComentarioForm()
     return render(request, 'blog/add_comentario_to_post.html', {'form': form})
@@ -106,7 +106,7 @@ def add_comentario_to_post(request, pk):
 def comentario_aprovado(request, pk):
     comentario = get_object_or_404(Comentario, pk=pk)
     comentario.aprovar()
-    return redirect('blog.views.post_detail', pk=comentario.post.pk)
+    return redirect('post_detail', pk=comentario.post.pk)
 
 
 @login_required
@@ -114,4 +114,4 @@ def comentario_remover(request, pk):
     comentario = get_object_or_404(Comentario, pk=pk)
     post_pk = comentario.post.pk
     comentario.delete()
-    return redirect('blog.views.post_detail', pk=post_pk)
+    return redirect('post_detail', pk=post_pk)
