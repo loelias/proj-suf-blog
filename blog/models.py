@@ -25,7 +25,7 @@ class Post(models.Model):
 
 class Comentario(models.Model):
     post = models.ForeignKey('blog.Post', related_name='comentarios')
-    autor = models.CharField(max_length=200)
+    autor = models.EmailField()
     texto = models.TextField()
     data_criacao = models.DateTimeField(default=timezone.now)
     comentario_aprovado = models.BooleanField(default=False)

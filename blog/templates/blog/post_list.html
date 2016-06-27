@@ -4,14 +4,26 @@
   {% for post in posts %}
     <article class="post">
       <article class="well" id="fade">
-      <article class="date">
-        <p>Publicado: {{ post.data_publicacao }}</p>
+        <header class="entry-header">
+          <div class="entry-meta">
+            <span class="posted-on">
+              <time class="entry-date published">
+                Publicado: {{ post.data_publicacao }}
+              </time>
+            </span>
+          </div>
+          <h1 class="entry-title">
+            <a href="{% url 'post_detail' pk=post.pk %}">
+              {{ post.titulo }}
+            </a>
+          </h1>
+        </header>
+        <div class="entry-content">
+          <p>{{ post.texto|linebreaks }}</p>
+          <a href="{% url 'post_detail' pk=post.pk %}">Comentários</a>
+        </div>
       </article>
-      <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.titulo }}</a></h1>
-      <p>{{ post.texto|linebreaks }}</p>
-      <a href="{% url 'post_detail' pk=post.pk %}">Comentários {{ post.comentario_aprovado.count }}</a>
     </article>
-  </article>
   {% endfor %}
   <article class="pagination">
     <span class="step-links">
