@@ -2,6 +2,8 @@
 
 {% block content %}
   {% for post in posts %}
+   {% if not post.data_publicacao == null %}
+    {% if not comentario.comentario_aprovado == True %}
     <article class="post">
       <article class="well" id="fade">
         <header class="entry-header">
@@ -24,6 +26,8 @@
         </div>
       </article>
     </article>
+    {% endif %}
+    {% endif %}
   {% endfor %}
   <article class="pagination">
     <span class="step-links">

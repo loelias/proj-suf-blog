@@ -22,7 +22,7 @@ body {
   background-clip: padding-box;
   width: 100%;
 }
-.navbar.stick {
+.navbar.sticky {
   position: fixed;
   top: 0;
   left: 0;
@@ -50,14 +50,9 @@ body {
 }
 .navbar-collapse .navbar-nav > li > a {
   padding: 20px 30px;
+
 }
-.dropdown ul.dropdown-menu {
-  top: 85%;
-  text-align: left;
-}
-.dropdown ul.dropdown-menu > li > a {
-  padding: 5px 30px;
-}
+
 .navbar-default {
   background-color: #ffffff;
   border-color: #cccccc;
@@ -76,13 +71,7 @@ body {
   color: #000000;
   background-color: #ffffff;
 }
-.navbar-default .dropdown ul.dropdown-menu > li > a {
-  color: #454545;
-}
-.navbar-default .dropdown ul.dropdown-menu > li > a:hover {
-  background-color: #eeeeee;
-  color: #000000;
-}
+
 .navbar-default .navbar-toggle {
   border-color: #666666;
 }
@@ -106,18 +95,13 @@ body {
 
 p {
   line-height: 1.6em;
-  margin: 0 0 30px 0;
+  margin: 0 0 0 0;
 }
-ul,
-ol {
+ul {
   line-height: 1.6em;
   margin: 0 0 30px 0;
 }
-blockquote {
-  padding: 10px 20px;
-  margin: 0 0 30px;
-  border-left: 5px solid #eee;
-}
+
 h1,
 h2,
 h3,
@@ -671,14 +655,6 @@ footer.entry-meta .meta-in {
 #underfooter p {
   margin: 0;
 }
-.follow-me-icons {
-  font-size: 30px;
-}
-.follow-me-icons i {
-  float: left;
-  margin: 0 10px 0 0;
-}
-
 
 @media (min-width: 1200px) {
   .container {
@@ -686,44 +662,13 @@ footer.entry-meta .meta-in {
   }
 }
 
-
-.page-header {
-    background: #339900;
-    background: -webkit-linear-gradient(white, #339900); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(white, #339900); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(white, #339900); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(white, #339900); /* Standard syntax */
-    margin-top: 0;
-    padding: 20px 20px 20px 40px;
-}
-
 #fade {
-   opacity: 1;
-   transition: opacity .25s ease-in-out;
-   -moz-transition: opacity .25s ease-in-out;
-   -webkit-transition: opacity .25s ease-in-out;
-   }
-
-   #fade:hover {
-      opacity: 0.5;
-      }
-
-
-.nav-side {
-  font-size: 24px;
-  font-size: 1.5rem;
-  font-weight: 300;
-  margin-top: -0.37em;
+ opacity: 1;
+ transition: opacity .25s ease-in-out;
+ -moz-transition: opacity .25s ease-in-out;
+ -webkit-transition: opacity .25s ease-in-out;
 }
-.nav-side > li > a {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  color: #f392b4;
-}
-.nav-side > li > a:hover {
-  color: #bd1550;
-  background: none;
-}
-.nav-side > li.active > a {
-  color: #bd1550;
+
+#fade:hover {
+  opacity: 0.5;
 }

@@ -7,11 +7,13 @@
       <fieldset>
         <div class="form-group">
           <label for="inputEmail">Email</label>
-          <input type="email" class="form-control" id="inputEmail" placeholder="Digite seu email" value="{{ form.autor }}">
+          {{ form.autor.errors }}
+          {{ form.autor }}
         </div>
         <div class="form-group">
           <label for="inputComment">Comentário</label>
-          <textarea class="form-control" rows="6"></textarea>
+          {{ form.texto.errors }}
+          {{ form.texto }}
         </div>
         <button type="submit" class="save btn btn-default">Enviar</button>
       </fieldset>

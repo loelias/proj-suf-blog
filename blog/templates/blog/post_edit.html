@@ -7,11 +7,13 @@
       <fieldset>
         <div class="form-group">
           <label for="inputTitle">Título</label>
-          <input id="inputTitle" type="text" class="form-control" value="{{ form.titulo}}"></input>
+          {{ form.titulo.errors }}
+          {{ form.titulo}}
         </div>
         <div class="form-group">
           <label for="inputComment">Postagem</label>
-          <textarea class="form-control" rows="6" value="{{ form.texto }}"></textarea>
+          {{ form.texto.errors }}
+          {{ form.texto }}
         </div>
       <button type="submit" class="save btn btn-default">Salvar</button>
     </fieldset>
