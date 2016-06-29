@@ -1,0 +1,32 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+<article id="respond">
+  <h3 id="reply-title">Faça o cadastro:</h3>
+  {% if form.errors %}
+    <p>Tente novamente. Senha e/ou Usuário preenchidos incorretamente(s).</p>
+  {% endif %}
+
+  <form method="post" action="">
+    {% csrf_token %}
+    <fieldset>
+      <div class="form-group">
+        {{ form.username.label_tag }}
+        {{ form.username }}
+      </div>
+      <div class="form-group">
+          {{ form.password1.errors }}
+          {{ form.password1.label_tag }}
+          {{ form.password1 }}
+      </div>
+      <div class="form-group">
+          {{ form.password2.errors }}
+          {{ form.password2.label_tag }}
+          {{ form.password2 }}
+      </div>
+      <input type="submit" class="btn btn-default btn-xs" value="Cadastrar" />
+      <input type="hidden" name="next" value="{{ next }}" />
+    </fieldset>
+  </form>
+</article>
+{% endblock %}

@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from blog.views.comentario import *
-from blog.views.post import *
+from blog.views.postagens import *
 from . import views
 
 urlpatterns = [

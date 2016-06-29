@@ -5,8 +5,8 @@ from django.utils import timezone
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views import generic
 from django.http import HttpResponse
-from blog.models.post import Post
-from .forms import PostForm
+from blog.models.postagens import Post
+from blog.forms import PostForm
 
 
 class PostListView(generic.ListView):

@@ -5,7 +5,8 @@ from django.utils import timezone
 from django.views import generic
 from django.http import HttpResponse
 from blog.models.comentario import Comentario
-from .forms import ComentarioForm
+from blog.models.postagens import Post
+from blog.forms import ComentarioForm
 
 
 def add_comentario_to_post(request, pk):

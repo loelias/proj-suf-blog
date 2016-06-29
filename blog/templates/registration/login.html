@@ -10,19 +10,21 @@
   <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
     <fieldset>
-      <table>
-        <tr>
-            <td>{{ form.username.label_tag }}</td>
-            <td>{{ form.username }}</td>
-        </tr>
-        <tr>
-            <td>{{ form.password.label_tag }}</td>
-            <td>{{ form.password }}</td>
-        </tr>
+      <div class="form-group">
+          {{ form.username.errors }}
+          {{ form.username.label_tag }}
+          {{ form.username }}
+      </div>
+      <div class="form-group">
+          {{ form.password.errors }}
+          {{ form.password.label_tag }}
+          {{ form.password }}
+      </div>
       </table>
 
-      <input type="submit" value="login" />
+      <input type="submit" class="btn btn-default btn-xs" value="login" />
       <input type="hidden" name="next" value="{{ next }}" />
+      <a href="/accounts/register" class="btn btn-default btn-xs" role="button">Cadastre-se</a>
     </fieldset>
   </form>
 </article>
