@@ -4,7 +4,7 @@ from blog.models.post import Post
 
 
 class Comentario(models.Model):
-    post = models.ForeignKey('blog.Post', related_name='comentarios')
+    post = models.ForeignKey('blog.models.post.Post', related_name='comentarios')
     autor = models.EmailField()
     texto = models.TextField()
     data_criacao = models.DateTimeField(default=timezone.now)
